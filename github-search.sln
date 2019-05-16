@@ -5,6 +5,10 @@ VisualStudioVersion = 15.0.28307.421
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "github-search", "github-search\github-search.csproj", "{6B69F319-78B8-4560-B691-3596AFE12610}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "github-search.ViewModels", "github-search.ViewModels\github-search.ViewModels.csproj", "{8F983AFA-7B64-4070-849C-1FE5F119EE85}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "github-search.Services", "github-search.Services\github-search.Services.csproj", "{DE727EDE-4BD2-4CFB-935F-BC6FECEAA22C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{6B69F319-78B8-4560-B691-3596AFE12610}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6B69F319-78B8-4560-B691-3596AFE12610}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6B69F319-78B8-4560-B691-3596AFE12610}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8F983AFA-7B64-4070-849C-1FE5F119EE85}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8F983AFA-7B64-4070-849C-1FE5F119EE85}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8F983AFA-7B64-4070-849C-1FE5F119EE85}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8F983AFA-7B64-4070-849C-1FE5F119EE85}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DE727EDE-4BD2-4CFB-935F-BC6FECEAA22C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DE727EDE-4BD2-4CFB-935F-BC6FECEAA22C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DE727EDE-4BD2-4CFB-935F-BC6FECEAA22C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DE727EDE-4BD2-4CFB-935F-BC6FECEAA22C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using github_search.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -10,7 +11,8 @@ namespace github_search.Controllers
     {
         public ActionResult Index()
         {
-            return View();
+            var vm = new HomeVM();
+            return View(vm);
         }
 
         public ActionResult About()

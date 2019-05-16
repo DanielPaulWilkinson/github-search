@@ -1,0 +1,221 @@
+﻿/// <reference path="../base/_variables.scss" />
+
+//--- Mixins ---\\
+@mixin transition($effect, $duration) {
+    transition: $effect $duration;
+    -moz-transition: $effect $duration;
+    -o-transition: $effect $duration;
+    -webkit-transition: $effect $duration;
+}
+
+@mixin generateClass($class, $prefix, $size, $extension: 'px') {
+    .#{$class}-#{$size} {
+        #{$prefix}: 1 * $size#{$extension};
+    }
+}
+
+@mixin generateResponsiveClass($class, $prefix, $value) {
+    //default
+    .#{$class} {
+        #{$prefix}: #{$value};
+    }
+    //xs
+    @media (max-width: $screen-xs-max) {
+        .#{$class}-xs {
+            #{$prefix}: #{$value};
+        }
+    }
+    //sm
+    @media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
+        .#{$class}-sm {
+            #{$prefix}: #{$value};
+        }
+    }
+    //md
+    @media (min-width: $screen-md-min) and (max-width: $screen-md-max) {
+        .#{$class}-md {
+            #{$prefix}: #{$value};
+        }
+    }
+    //lg
+    @media (min-width: $screen-lg-min) {
+        .#{$class}-lg {
+            #{$prefix}: #{$value};
+        }
+    }
+}
+
+@mixin btn($class, $bgColor, $fontColor: #ffffff, $color-solid: true) {
+    .btn#{if($color-solid, '-solid','')}-#{$class} {
+        border: none !important;
+        color: $fontColor;
+        background: $bgColor;
+        text-transform: uppercase;
+        font-weight: 500;
+        border-radius: 5px;
+        padding: 10px 20px;
+        font-size: 16px;
+        background-size: 100%;
+        outline: none;
+        -webkit-box-shadow: 0 2px 3px 0px rgba(0, 0, 0, 0.5);
+        box-shadow: 0 2px 3px 0px rgba(0, 0, 0, 0.5);
+        border-radius: 10px;
+        @include transition(ease-out, 150ms);
+        &:hover, &:active, &:focus {
+            color: $fontColor !important;
+            outline: none;
+            background: darken($bgColor, 5%) !important;
+            -webkit-box-shadow: 0 2px 3px 0px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 2px 3px 0px rgba(0, 0, 0, 0.5);
+        }
+
+        &.no-text-transform {
+            text-transform: initial;
+        }
+    }
+}
+
+@mixin link($class, $fontColor) {
+    .link-#{$class} {
+        color: $fontColor;
+        text-decoration: none;
+        border: none;
+        background: none;
+        outline: none;
+        padding: 0;
+        @include transition(ease-out, 250ms);
+
+        &:hover {
+            color: darken($fontColor, 30%);
+            text-decoration: none;
+        }
+
+        &:focus, &:active {
+            color: $fontColor;
+            text-decoration: none;
+        }
+    }
+}
+
+// Animation
+@mixin keyframes($animation-name) {
+    @-webkit-keyframes #{$animation-name} {
+        @content;
+    }
+
+    @-moz-keyframes #{$animation-name} {
+        @content;
+    }
+
+    @-ms-keyframes #{$animation-name} {
+        @content;
+    }
+
+    @-o-keyframes #{$animation-name} {
+        @content;
+    }
+
+    @keyframes #{$animation-name} {
+        @content;
+    }
+}
+
+@mixin animation($str) {
+    -webkit-animation: #{$str};
+    -moz-animation: #{$str};
+    -ms-animation: #{$str};
+    -o-animation: #{$str};
+    animation: #{$str};
+}
+//---
+
+
+@mixin breakpoint($point) {
+    @if $point == xs {
+        @media (max-width: $screen-xs-max) {
+            @content;
+        }
+    }
+    @else if $point == sm {
+        @media (max-width: $screen-sm-max) {
+            @content;
+        }
+    }
+    @else if $point == md {
+        @media (max-width: $screen-md-max) {
+            @content;
+        }
+    }
+    @else if $point == lg {
+        @media (min-width: $screen-lg-min) {
+            @content;
+        }
+    }
+}
+
+/* Vertically aligns the container it is attached to */
+@mixin centralise {
+    position: relative;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+
+@mixin activity-ripple($name, $size-as-perc, $colour, $speed, $delay) {
+
+    $multiplier: $size-as-perc / 100;
+    $core-dimension: 64 * $multiplier;
+    $zero-percent-dimension: 28 * $multiplier;
+    $hundred-percent-dimension: 58 * $multiplier;
+
+    .#{$name} {
+        position: relative;
+        width: #{$core-dimension}px;
+        height: #{$core-dimension}px;
+
+        div {
+            position: absolute;
+            border: 4px solid $colour;
+            opacity: 1;
+            border-radius: 50%;
+            animation: #{$name} #{$speed}s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+        }
+
+        div:nth-child(2) {
+            animation-delay: -#{$delay}s;
+        }
+    }
+
+    @keyframes #{$name} {
+        0% {
+            top: #{$zero-percent-dimension}px;
+            left: #{$zero-percent-dimension}px;
+            width: 0;
+            height: 0;
+            opacity: 1;
+        }
+
+        100% {
+            top: -1px;
+            left: -1px;
+            width: #{$hundred-percent-dimension}px;
+            height: #{$hundred-percent-dimension}px;
+            opacity: 0;
+        }
+    }
+
+    @keyframes delayedShow {
+        to {
+            visibility: visible;
+        }
+    }
+
+    .delayedShow {
+        visibility: hidden;
+        animation: 0s linear 1.0s forwards delayedShow;
+    }
+}

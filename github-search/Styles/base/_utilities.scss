@@ -1,0 +1,492 @@
+﻿/// <reference path="../base/_variables.scss" />
+/// <reference path="../base/_mixins.scss" />
+
+//--- Margin / Padding ---\\
+.margin-centre {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.padding-0-important {
+    padding: 0 !important;
+}
+
+//default
+@for $i from 0 through 20 {
+    @include generateClass(margin, margin, $i*5);
+    @include generateClass(margin-left, margin-left, $i*5);
+    @include generateClass(margin-top, margin-top, $i*5);
+    @include generateClass(margin-bottom, margin-bottom, $i*5);
+    @include generateClass(margin-right, margin-right, $i*5);
+}
+
+@for $i from 0 through 20 {
+    @include generateClass(padding, padding, $i*5);
+    @include generateClass(padding-left, padding-left, $i*5);
+    @include generateClass(padding-top, padding-top, $i*5);
+    @include generateClass(padding-bottom, padding-bottom, $i*5);
+    @include generateClass(padding-right, padding-right, $i*5);
+}
+
+//xs
+@media (max-width: $screen-xs-max) {
+    @for $i from 0 through 20 {
+        @include generateClass(margin-xs, margin, $i*5);
+        @include generateClass(margin-xs-left, margin-left, $i*5);
+        @include generateClass(margin-xs-top, margin-top, $i*5);
+        @include generateClass(margin-xs-bottom, margin-bottom, $i*5);
+        @include generateClass(margin-xs-right, margin-right, $i*5);
+    }
+
+    @for $i from 0 through 20 {
+        @include generateClass(padding-xs, padding, $i*5);
+        @include generateClass(padding-xs-left, padding-left, $i*5);
+        @include generateClass(padding-xs-top, padding-top, $i*5);
+        @include generateClass(padding-xs-bottom, padding-bottom, $i*5);
+        @include generateClass(padding-xs-right, padding-right, $i*5);
+    }
+}
+
+//sm
+@media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
+    @for $i from 0 through 20 {
+        @include generateClass(margin-sm, margin, $i*5);
+        @include generateClass(margin-sm-left, margin-left, $i*5);
+        @include generateClass(margin-sm-top, margin-top, $i*5);
+        @include generateClass(margin-sm-bottom, margin-bottom, $i*5);
+        @include generateClass(margin-sm-right, margin-right, $i*5);
+    }
+
+    @for $i from 0 through 20 {
+        @include generateClass(padding-sm, padding, $i*5);
+        @include generateClass(padding-sm-left, padding-left, $i*5);
+        @include generateClass(padding-sm-top, padding-top, $i*5);
+        @include generateClass(padding-sm-bottom, padding-bottom, $i*5);
+        @include generateClass(padding-sm-right, padding-right, $i*5);
+    }
+}
+
+//md
+@media (min-width: $screen-md-min) and (max-width: $screen-md-max) {
+    @for $i from 0 through 20 {
+        @include generateClass(margin-md, margin, $i*5);
+        @include generateClass(margin-md-left, margin-left, $i*5);
+        @include generateClass(margin-md-top, margin-top, $i*5);
+        @include generateClass(margin-md-bottom, margin-bottom, $i*5);
+        @include generateClass(margin-md-right, margin-right, $i*5);
+    }
+
+    @for $i from 0 through 20 {
+        @include generateClass(padding-md, padding, $i*5);
+        @include generateClass(padding-md-left, padding-left, $i*5);
+        @include generateClass(padding-md-top, padding-top, $i*5);
+        @include generateClass(padding-md-bottom, padding-bottom, $i*5);
+        @include generateClass(padding-md-right, padding-right, $i*5);
+    }
+}
+
+//lg
+@media (min-width: $screen-lg-min) {
+    @for $i from 0 through 20 {
+        @include generateClass(margin-lg, margin, $i*5);
+        @include generateClass(margin-lg-left, margin-left, $i*5);
+        @include generateClass(margin-lg-top, margin-top, $i*5);
+        @include generateClass(margin-lg-bottom, margin-bottom, $i*5);
+        @include generateClass(margin-lg-right, margin-right, $i*5);
+    }
+
+    @for $i from 0 through 20 {
+        @include generateClass(padding-lg, padding, $i*5);
+        @include generateClass(padding-lg-left, padding-left, $i*5);
+        @include generateClass(padding-lg-top, padding-top, $i*5);
+        @include generateClass(padding-lg-bottom, padding-bottom, $i*5);
+        @include generateClass(padding-lg-right, padding-right, $i*5);
+    }
+}
+
+//--- Position ---\\
+
+//default
+@for $i from 0 through 50 {
+    @include generateClass(top, top, $i);
+    @include generateClass(right, right, $i);
+    @include generateClass(bottom, bottom, $i);
+    @include generateClass(left, left, $i);
+}
+
+//xs
+@media (max-width: $screen-xs-max) {
+    @for $i from 0 through 50 {
+        @include generateClass(top-xs, top, $i);
+        @include generateClass(right-xs, right, $i);
+        @include generateClass(bottom-xs, bottom, $i);
+        @include generateClass(left-xs, left, $i);
+    }
+}
+
+//sm
+@media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
+    @for $i from 0 through 50 {
+        @include generateClass(top-sm, top, $i);
+        @include generateClass(right-sm, right, $i);
+        @include generateClass(bottom-sm, bottom, $i);
+        @include generateClass(left-sm, left, $i);
+    }
+}
+
+//md
+@media (min-width: $screen-md-min) and (max-width: $screen-md-max) {
+    @for $i from 0 through 50 {
+        @include generateClass(top-md, top, $i);
+        @include generateClass(right-md, right, $i);
+        @include generateClass(bottom-md, bottom, $i);
+        @include generateClass(left-md, left, $i);
+    }
+}
+
+//lg
+@media (min-width: $screen-lg-min) {
+    @for $i from 0 through 50 {
+        @include generateClass(top-lg, top, $i);
+        @include generateClass(right-lg, right, $i);
+        @include generateClass(bottom-lg, bottom, $i);
+        @include generateClass(left-lg, left, $i);
+    }
+}
+
+//--- Font Weight ---\\
+@for $i from 1 through 8 {
+    @include generateClass(font-weight, font-weight, $i*100,'');
+}
+
+//--- Font Colours ---\\
+@each $name, $value in $colours {
+    @include generateResponsiveClass(#{'color-' + $name},'color',$value);
+}
+
+//--- Background Colours ---\\
+@each $name, $value in $colours {
+    @include generateResponsiveClass(#{'bg-' + $name},'background',$value);
+}
+
+//--- Buttons ---\\
+@each $name, $value in $colours {
+    @if($name == 'white' or $name == 'default') {
+        @include btn($name, $value, #333333, true);
+        @include btn($name, $value, #333333, false);
+    }
+    @else {
+        @include btn($name, $value, #ffffff, true);
+        @include btn($name, $value, #ffffff, false);
+    }
+}
+
+.btn-solid-white-nohover {
+    border: 1px solid $white;
+    color: $black;
+    background: $white;
+    border-radius: 5px;
+    padding: 8px 16px;
+    font-size: 16px;
+
+    &:hover, &:active, &:focus {
+        box-shadow: none;
+    }
+
+    &.input-button-border-right {
+        padding: 8px 16px;
+    }
+}
+
+.btn-blank {
+    background: none;
+    padding: 0;
+    border: none;
+
+    &:hover {
+        color: $primary-colour;
+    }
+}
+
+.dropdown.open {
+    .btn-blank {
+        color: $primary-colour;
+    }
+}
+
+.btn-small {
+    padding: 5px 10px;
+    font-size: 14px;
+}
+
+//--- Links ---\\
+@each $name, $value in $colours {
+    @include link($name, $value);
+}
+
+//--- Font Sizes ---\\
+
+//default
+@for $i from 0 through 100 {
+    @include generateClass(font-size, font-size, $i);
+}
+// xs
+@media (max-width: $screen-xs-max) {
+    @for $i from 0 through 100 {
+        @include generateClass(font-size-xs, font-size, $i);
+    }
+}
+//sm
+@media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
+    @for $i from 0 through 100 {
+        @include generateClass(font-size-sm, font-size, $i);
+    }
+}
+//md
+@media (min-width: $screen-md-min) and (max-width: $screen-md-max) {
+    @for $i from 0 through 100 {
+        @include generateClass(font-size-md, font-size, $i);
+    }
+}
+//lg
+@media (min-width: $screen-lg-min) {
+    @for $i from 0 through 100 {
+        @include generateClass(font-size-lg, font-size, $i);
+    }
+}
+
+//--- Text Align ---\\
+@include generateResponsiveClass('text-center','text-align','center');
+@include generateResponsiveClass('text-right','text-align','right');
+@include generateResponsiveClass('text-left','text-align','left');
+
+// --- Background Colour None ---\\
+@include generateResponsiveClass('bg-none','background','none');
+
+//--- Positon Types ---\\
+@include generateResponsiveClass('position-relative','position','relative');
+@include generateResponsiveClass('position-absolute','position','absolute');
+
+.position-absolute-important {
+    position: absolute !important;
+}
+
+//--- Input Groups ---\\
+.input-group {
+
+    .form-control {
+        height: 35px;
+    }
+
+    .btn {
+        padding: 6px 16px !important;
+        z-index: 4 !important;
+        margin-left: 15px !important;
+        border-radius: 5px !important;
+    }
+}
+
+//--- Images ---\\
+.img-full-width {
+    width: 100%;
+}
+
+.img-circle {
+    border-radius: 50%;
+}
+
+//--- Display ---\\
+.display-block {
+    display: block;
+}
+
+.display-none {
+    display: none;
+}
+
+.display-inline-block {
+    display: inline-block;
+}
+
+.display-table {
+    display: table;
+}
+
+.display-table-cell {
+    display: table-cell;
+}
+
+//--- Vertical Align ---\\
+.vertical-align-top {
+    vertical-align: top;
+}
+
+.vertical-align-middle {
+    vertical-align: middle;
+}
+
+.vertical-align-bottom {
+    vertical-align: bottom;
+}
+
+/* Vertically aligns the container it is attached to */
+.centralise {
+    @include centralise();
+}
+
+//--- Text ---\\
+.text-uppercase {
+    text-transform: uppercase;
+}
+
+.inline-icon-text {
+    line-height: 30px;
+    height: 30px;
+    display: inline-block;
+
+    .icon {
+        vertical-align: sub;
+        margin-left: 5px;
+    }
+}
+
+//--- Borders ---\\
+.no-border {
+    border: none;
+}
+
+.no-border-left {
+    border-left: none !important;
+}
+
+.border-white {
+    border-color: $white;
+}
+
+@media (max-width: $screen-xs-max) {
+    .border-xs-none {
+        border: none !important;
+    }
+}
+
+// --- Text Shadow ---\\
+.text-shadow {
+    text-shadow: 0 0 5px rgba(0,0,0,0.8);
+}
+// --- Cursor Pointer ---\\
+.cursor-pointer {
+    cursor: pointer;
+}
+
+.width-10-percent {
+    width: 10%;
+}
+
+// xs
+@media (max-width: $screen-xs-max) {
+    .min-width-xs-unset {
+        min-width: unset;
+    }
+}
+
+//sm
+@media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
+    .min-width-sm-unset {
+        min-width: unset;
+    }
+}
+
+// --- Heights ---\\
+.height-full {
+    height: 100%;
+}
+
+.height-17 {
+    height: 17px;
+}
+
+.min-height-30 {
+    min-height: 30px;
+}
+
+.height-700 {
+    height: 700px;
+}
+
+.min-height-55 {
+    min-height: 55px;
+}
+
+@media (max-width: $screen-xs-max) {
+    .height-auto-xs {
+        height: auto;
+        min-height: unset;
+    }
+}
+
+@media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
+    .height-auto-sm {
+        height: auto;
+        min-height: unset;
+    }
+}
+
+//--- Overflow ---\\
+.overflow-hidden {
+    overflow: hidden;
+}
+
+.overflow-y-scroll {
+    overflow-y: scroll;
+}
+
+.overflow-y-auto {
+    overflow-y: auto;
+}
+
+//--- Width ---\\
+
+.width-full {
+    width: 100%;
+}
+
+.width-half {
+    width: 50%;
+}
+
+.width-quarter {
+    width: 25%;
+}
+
+.width-third {
+    width: 33%;
+}
+
+.max-width-30 {
+    max-width: 30px;
+}
+
+.min-width-600 {
+    min-width: 600px;
+}
+
+@for $i from 5 through 30 {
+
+    @include generateClass(width, width, $i*10);
+}
+
+@for $i from 5 through 50 {
+
+    @include generateClass(max-width, max-width, $i*10);
+}
+.disable-vertical-scroll {
+    overflow-y: visible !important;
+}
+
+.text-wrap {
+    white-space: normal !important;
+}
+
+.no-wrap {
+    white-space: nowrap;
+}
