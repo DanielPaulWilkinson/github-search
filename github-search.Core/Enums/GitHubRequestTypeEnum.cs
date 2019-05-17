@@ -4,9 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace github_search.Services
+namespace github_search.Core
 {
-    public class Class1
+    public enum GitHubRequestTypeEnum
     {
+        UserRequest,
+        UserRepoRequest
     }
 }

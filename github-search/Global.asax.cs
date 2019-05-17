@@ -1,4 +1,5 @@
-﻿using System;
+﻿using github_search.App_Start;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -12,6 +13,7 @@ namespace github_search
     {
         protected void Application_Start()
         {
+            AutofacConfig.Register();
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);

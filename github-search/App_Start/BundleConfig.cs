@@ -20,8 +20,6 @@ namespace github_search
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
                       "~/Scripts/bootstrap.js"));
 
-     
-
             //Styles for the whole application
             bundles.Add(new StyleBundle("~/Content/css").Include(
                    "~/styles/css/bootstrap.css",

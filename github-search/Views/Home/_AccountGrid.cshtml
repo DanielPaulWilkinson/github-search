@@ -1,0 +1,25 @@
+﻿@model github_search.ViewModels.HomeVM
+@*<div class="row">
+    <div class="facet-options">
+        <div class="col-md-6 col-xs-12">
+            @Html.Partial("~/Views/Facets/_Pager.cshtml", Model.Pager)
+        </div>
+    </div>
+</div>*@
+
+<hr class="description-hr" />
+<div class="row">
+    @foreach (var item in Model.Results.items)
+    {
+        <div class="col-md-4 margin-bottom-10">
+            <div class="row">
+                    @Html.Partial("_AccountItem", item)
+            </div>
+        </div>
+    }
+</div>
+@*<div class="row">
+    <div class="col-md-offset-6 col-md-6">
+        @Html.Partial("~/Views/Facets/_Pager.cshtml", Model.Pager)
+    </div>
+</div>*@

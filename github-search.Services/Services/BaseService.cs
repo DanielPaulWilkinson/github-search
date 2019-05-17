@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace github_search.ViewModels
+namespace github_search.Services.Services
 {
-    public class BaseVM
+    public class BaseService
     {
-        public int id { get; set; }
     }
 }
