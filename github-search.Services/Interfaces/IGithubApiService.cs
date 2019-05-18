@@ -10,6 +10,6 @@ namespace github_search.Services.Interfaces
 {
     public interface IGithubApiService : IBaseService
     {
-        Task<SearchResultVM> GetUsersByName(string Name, GitHubRequestTypeEnum gitHubRequestTypeEnum = GitHubRequestTypeEnum.UserRequest);
+        Task<dynamic> GetUsersByName<T>(T t, string Name, GitHubRequestTypeEnum gitHubRequestTypeEnum = GitHubRequestTypeEnum.UserRequest) where T : Type;
     }
 }

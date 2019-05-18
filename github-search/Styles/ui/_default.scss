@@ -1,0 +1,10 @@
+﻿
+a {
+    color:$black;
+    @extend .text-decoration-none;
+
+    &:hover {
+        color:$blue;
+        @extend .text-decoration-none;
+    }
+}

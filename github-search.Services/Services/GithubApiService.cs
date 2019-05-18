@@ -1,10 +1,13 @@
 ﻿using github_search.Core;
 using github_search.Core.Consts;
+using github_search.Core.Helpers;
 using github_search.Services.Interfaces;
 using github_search.ViewModels;
+using github_search.ViewModels.Repo;
 using github_search.ViewModels.User;
 using Newtonsoft.Json;
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Net;
 using System.Threading.Tasks;
@@ -13,11 +16,20 @@ namespace github_search.Services
 {
     public class GithubApiService : IGithubApiService
     {
-        public async Task<SearchResultVM> GetUsersByName(string Name, GitHubRequestTypeEnum gitHubRequestTypeEnum = GitHubRequestTypeEnum.UserRequest)
+        public async Task<dynamic> GetUsersByName<T>(T t, string Name, GitHubRequestTypeEnum gitHubRequestTypeEnum = GitHubRequestTypeEnum.UserRequest) where T : Type
         {
-            var vm = new SearchResultVM();
+            var url = BuildURL(Name, gitHubRequestTypeEnum);
 
-            var url = GetGithubRequestType(Name, gitHubRequestTypeEnum);
+            var vm = await MakeRequest(t, url);
+
+            return vm;
+        }
+
+
+
+        public async Task<dynamic> MakeRequest<T>(T t, string url) where T : Type
+        {
+            var vm = GetObject(t);
 
             HttpWebRequest webRequest = WebRequest.Create(url) as HttpWebRequest;
 
@@ -32,29 +44,57 @@ namespace github_search.Services
                     using (StreamReader responseReader = new StreamReader(webRequest.GetResponse().GetResponseStream()))
                     {
                         string reader = await responseReader.ReadToEndAsync();
-                        vm = JsonConvert.DeserializeObject<SearchResultVM>(reader);
+
+                        if (t == typeof(UserSearchResultVM))
+                        {
+                            vm = JsonConvert.DeserializeObject<UserSearchResultVM>(reader);
+                        }
+                        else if (t == typeof(List<GithubRepo>))
+                        {
+                            vm = JsonConvert.DeserializeObject<List<GithubRepo>>(reader);
+                        }
+                        else if (t == typeof(GithubDetailedUser))
+                        {
+                            vm = JsonConvert.DeserializeObject<GithubDetailedUser>(reader);
+                        }
                     }
                 }
-                catch(Exception e)
+                catch (Exception e)
                 {
-                    vm =  null;
+                    vm = null;
                 }
+
             }
 
             return vm;
         }
 
-        private string GetGithubRequestType(string Name, GitHubRequestTypeEnum gitHubRequestTypeEnum)
+        private dynamic GetObject(Type t)
+        {
+            if (t == typeof(UserSearchResultVM)) { return new UserSearchResultVM(); }
+            else if (t == typeof(GithubUser)) { return new GithubUser(); }
+            else if (t == typeof(List<GithubRepo>)) { return new List<GithubRepo>(); }
+            else if (t == typeof(GithubDetailedUser)){ return new GithubDetailedUser(); }
+
+            else { throw new Exception($"No object type here for {t.Name}"); };
+        }
+
+
+        private string BuildURL(string Name, GitHubRequestTypeEnum gitHubRequestTypeEnum)
         {
             var request = "";
 
             switch (gitHubRequestTypeEnum)
             {
                 case GitHubRequestTypeEnum.UserRequest:
-                    request = String.Format(GithubCalls.searchUsersTemp, Name);
+                    request = string.Format(GithubCalls.searchUsersTemp, Name);
+                    break;
+
+                case GitHubRequestTypeEnum.UserDetailedRequest:
+                    request = string.Format(GithubCalls.searchUserAccountTemp, Name);
                     break;
                 case GitHubRequestTypeEnum.UserRepoRequest:
-                    request = String.Format(GithubCalls.searchRepoTemp, Name);
+                    request = string.Format(GithubCalls.searchRepoTemp, Name);
                     break;
             }
 

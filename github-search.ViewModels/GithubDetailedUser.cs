@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace github_search.ViewModels.User
+namespace github_search.ViewModels
 {
-    public class GithubUser : BaseVM
+    public class GithubDetailedUser :BaseVM
     {
         public string login { get; set; }
         public string node_id { get; set; }
@@ -24,7 +24,22 @@ namespace github_search.ViewModels.User
         public string events_url { get; set; }
         public string received_events_url { get; set; }
         public string type { get; set; }
-        public bool site_admin { get; set; }
-        public decimal score { get; set; }
+        public string site_admin { get; set; }
+        public string name { get; set; }
+        public string company { get; set; }
+        public string blog { get; set; }
+        public string location { get; set; }
+        public string email { get; set; }
+        public string hireable { get; set; }
+        public string bio { get; set; }
+        public string public_repos { get; set; }
+        public string public_gists { get; set; }
+        public string followers { get; set; }
+        public string following { get; set; }
+        public string created_at { get; set; }
+        public string updated_at { get; set; }
+        public string subscriptions_url { get; set; }
+        public string score { get; set; }
+
     }
 }

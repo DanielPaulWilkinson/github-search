@@ -1,5 +1,17 @@
 ﻿@model github_search.ViewModels.User.GithubUser
 <div class="col-md-12 text-center">
-    <img src="@Model.avatar_url" class="img-circle w-50" />
-    <h2 class="margin-top-10">@Model.login</h2>
+    <a href="@Url.Action("learnmore","home", new { name = Model.login })" class="">
+        <div class="bg-blue account-item">
+            <div class="margin-top-10 margin-bottom-10 padding-10 shadow">
+                <img src="@Model.avatar_url" class="img-circle w-50" />
+
+                @if (Model.login.Length > 21)
+                {
+                    Model.login = Model.login.Substring(0, 15) + "...";
+                }
+
+                <h2 class="margin-top-10 text-decoration-none color-white">@Model.login</h2>
+            </div>
+        </div>
+    </a>
 </div>

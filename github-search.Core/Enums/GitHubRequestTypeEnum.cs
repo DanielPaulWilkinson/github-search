@@ -9,6 +9,7 @@ namespace github_search.Core
     public enum GitHubRequestTypeEnum
     {
         UserRequest,
+        UserDetailedRequest,
         UserRepoRequest
     }
 }

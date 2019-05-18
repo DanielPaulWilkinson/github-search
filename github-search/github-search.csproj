@@ -189,12 +189,15 @@
     <Content Include="Views\Shared\_Footer.cshtml" />
     <Content Include="Views\Home\_AccountGrid.cshtml" />
     <Content Include="Views\Home\_AccountItem.cshtml" />
+    <Content Include="Styles\ui\_home.scss" />
+    <Content Include="Views\Home\Profile.cshtml" />
+    <Content Include="Styles\ui\_profile.scss" />
+    <Content Include="Styles\ui\_default.scss" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Content\css\" />
     <Folder Include="Styles\components\" />
-    <Folder Include="Styles\ui\" />
     <Folder Include="Views\Base\" />
   </ItemGroup>
   <ItemGroup>

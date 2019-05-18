@@ -1,0 +1,28 @@
+﻿@model github_search.ViewModels.ProfileVM
+@{
+    ViewBag.Title = Model.User.name + "Profile";
+}
+<div id="profile">
+    <div class="row">
+        <div class="col-md-6">
+            @* If we get this far we can assume we have the login name if no 'name' exists *@
+            <h1><a href="@Model.User.html_url" class="text-decoration-none">@(Model.User.name ?? @Model.User.login)</a></h1>
+
+            <p>@Model.User.bio</p>
+            <p><a href="@Model.User.email">@Model.User.email</a></p>
+            <p>@Model.User.company</p>
+            <p>@Model.User.followers</p>
+            <p>@Model.User.score</p>
+            <p>@Model.User.organizations_url</p>
+            <p>@Model.User.public_gists</p>
+            <p>@Model.User.type</p>
+            <p>@Model.User.hireable</p>
+            <p>@Model.User.location</p>
+
+
+        </div>
+        <div class="col-md-6 text-center">
+            <img src="@Model.User.avatar_url" class="w-50 img-circle" />
+        </div>
+    </div>
+</div>

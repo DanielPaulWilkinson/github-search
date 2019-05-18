@@ -260,6 +260,8 @@
 @include generateResponsiveClass('text-right','text-align','right');
 @include generateResponsiveClass('text-left','text-align','left');
 
+@include generateResponsiveClass('text-decoration-none','text-decoration','none');
+
 // --- Background Colour None ---\\
 @include generateResponsiveClass('bg-none','background','none');
 

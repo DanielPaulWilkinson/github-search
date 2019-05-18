@@ -34,6 +34,9 @@
     <Reference Include="Autofac, Version=4.9.2.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
       <HintPath>..\packages\Autofac.4.9.2\lib\net45\Autofac.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -45,14 +48,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseVM.cs" />
-    <Compile Include="Pager\PagerVM.cs" />
-    <Compile Include="Repo\GithubUser.cs" />
+    <Compile Include="GithubDetailedUser.cs" />
+    <Compile Include="license.cs" />
+    <Compile Include="ProfileVM.cs" />
+    <Compile Include="Repo\GithubRepo.cs" />
     <Compile Include="Repo\OwnerVM.cs" />
-    <Compile Include="User\SearchResultVM.cs" />
+    <Compile Include="User\UserSearchResultVM.cs" />
     <Compile Include="HomeVM.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="User\GithubUser.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

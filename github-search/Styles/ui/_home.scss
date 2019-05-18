@@ -1,0 +1,18 @@
+﻿#account-list {
+    .account-item {
+        .shadow {
+            -webkit-box-shadow: 0px 6px 5px -1px rgba(0,0,0,0.59);
+            -moz-box-shadow: 0px 6px 5px -1px rgba(0,0,0,0.59);
+            box-shadow: 0px 6px 5px -1px rgba(0,0,0,0.59);
+            transition: 0.3s;
+            &:hover {
+                -webkit-box-shadow: 0px 3px 3px -1px rgba(0,0,0,0.59);
+                -moz-box-shadow: 0px 3px 3px -1px rgba(0,0,0,0.59);
+                box-shadow: 0px 3px 3px -1px rgba(0,0,0,0.59);
+            }
+        }
+        &:hover {
+            opacity: 0.9;
+        }
+    }
+}

@@ -6463,6 +6463,25 @@
   .text-left-lg {
     text-align: left; } }
 
+.text-decoration-none, a, a:hover {
+  text-decoration: none; }
+
+@media (max-width: 767px) {
+  .text-decoration-none-xs {
+    text-decoration: none; } }
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .text-decoration-none-sm {
+    text-decoration: none; } }
+
+@media (min-width: 992px) and (max-width: 1199px) {
+  .text-decoration-none-md {
+    text-decoration: none; } }
+
+@media (min-width: 1200px) {
+  .text-decoration-none-lg {
+    text-decoration: none; } }
+
 .bg-none {
   background: none; }
 
@@ -6886,3 +6905,20 @@
 
 .no-wrap {
   white-space: nowrap; }
+
+a {
+  color: #4A4A4A; }
+  a:hover {
+    color: #006bb3; }
+
+#account-list .account-item .shadow {
+  -webkit-box-shadow: 0px 6px 5px -1px rgba(0, 0, 0, 0.59);
+  box-shadow: 0px 6px 5px -1px rgba(0, 0, 0, 0.59);
+  -webkit-transition: 0.3s;
+  transition: 0.3s; }
+  #account-list .account-item .shadow:hover {
+    -webkit-box-shadow: 0px 3px 3px -1px rgba(0, 0, 0, 0.59);
+    box-shadow: 0px 3px 3px -1px rgba(0, 0, 0, 0.59); }
+
+#account-list .account-item:hover {
+  opacity: 0.9; }

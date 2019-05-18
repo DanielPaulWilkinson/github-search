@@ -11,7 +11,7 @@ namespace github_search.Core.Consts
         //base
         public static string user = "users";
         public static string search = "search";
-        public static string repo = "repo";
+        public static string repo = "repos";
 
         public static string githubApiDomain = "https://api.github.com";
         public static string githubDomain  = "https://github.com";
