@@ -11,6 +11,10 @@
             <h1 class="text-center-xs"><a href="@Model.User.html_url" target="_blank" class="text-decoration-none">@(Model.User.name ?? @Model.User.login)</a></h1>
             <p class="text-center-xs">@Model.User.bio</p>
             <p class="text-center-xs">Based in - @(Model.User.location ?? "Unspecified")</p>
+            <div>
+                <a class="btn btn-primary" href="@Url.Action("download","home", new { login = @Model.User.login }) ">Download Profile to PDF</a>
+                <a class="btn btn-primary" target="_blank" href="@Model.User.html_url">View Profile Online</a>
+            </div>
         </div>
     </div>
     <hr />

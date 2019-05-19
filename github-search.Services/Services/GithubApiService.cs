@@ -18,17 +18,12 @@ namespace github_search.Services
     {
         public async Task<dynamic> GetUsersByName<T>(T t, string Name, GitHubRequestTypeEnum gitHubRequestTypeEnum = GitHubRequestTypeEnum.UserRequest) where T : Type
         {
-           
+            var url = BuildURL(Name, gitHubRequestTypeEnum);
 
-                var url = BuildURL(Name, gitHubRequestTypeEnum);
+            var vm = await MakeRequest(t, url);
 
-                var vm = await MakeRequest(t, url);
-
-            
             return vm;
         }
-
-
 
         public async Task<dynamic> MakeRequest<T>(T t, string url) where T : Type
         {
@@ -77,8 +72,7 @@ namespace github_search.Services
             if (t == typeof(UserSearchResultVM)) { return new UserSearchResultVM(); }
             else if (t == typeof(GithubUser)) { return new GithubUser(); }
             else if (t == typeof(List<GithubRepo>)) { return new List<GithubRepo>(); }
-            else if (t == typeof(GithubDetailedUser)){ return new GithubDetailedUser(); }
-
+            else if (t == typeof(GithubDetailedUser)) { return new GithubDetailedUser(); }
             else { throw new Exception($"No object type here for {t.Name}"); };
         }
 
@@ -102,6 +96,29 @@ namespace github_search.Services
             }
 
             return request;
+        }
+
+        public async Task<List<GithubRepo>> GetRepositoriesByURL<T>(T t, string repos_url) where T : Type
+        {
+            var vm = await MakeRequest(t, repos_url);
+
+            return vm;
+        }
+
+
+        public async Task<ProfileVM> GetProfile(string name)
+        {
+            var vm = new ProfileVM();
+
+            vm.User = await GetUsersByName(typeof(GithubDetailedUser), name, Core.GitHubRequestTypeEnum.UserDetailedRequest);
+
+            //TODO: add feedback for user.
+            if (vm.User != null && vm.User.repos_url != null && vm.User.repos_url.Length > 0)
+            {
+                vm.Repositories = await GetRepositoriesByURL(typeof(List<GithubRepo>), vm.User.repos_url);
+            }
+
+            return vm;
         }
     }
 }
