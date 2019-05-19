@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using github_search.ViewModels.Base;
 
 namespace github_search.ViewModels.User
 {

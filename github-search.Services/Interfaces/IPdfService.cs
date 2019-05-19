@@ -1,4 +1,5 @@
 ﻿using github_search.ViewModels;
+using github_search.ViewModels.Pages;
 using System;
 using System.Collections.Generic;
 using System.IO;

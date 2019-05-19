@@ -1,11 +1,7 @@
-﻿using github_search.ViewModels.User;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using github_search.ViewModels.Base;
+using github_search.ViewModels.User;
 
-namespace github_search.ViewModels
+namespace github_search.ViewModels.Pages
 {
     public class HomeVM : BaseVM
     {

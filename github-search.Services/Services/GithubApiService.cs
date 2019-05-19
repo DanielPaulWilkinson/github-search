@@ -1,9 +1,8 @@
 ﻿using github_search.Core;
 using github_search.Core.Consts;
-using github_search.Core.Helpers;
 using github_search.Services.Interfaces;
-using github_search.ViewModels;
-using github_search.ViewModels.Repo;
+using github_search.ViewModels.Pages;
+using github_search.ViewModels.Repository;
 using github_search.ViewModels.User;
 using Newtonsoft.Json;
 using System;
@@ -81,7 +80,7 @@ namespace github_search.Services
                         }
                     }
                 }
-                catch (Exception e)
+                catch
                 {
                     vm = null;
                 }
@@ -91,7 +90,7 @@ namespace github_search.Services
             return vm;
         }
 
-        private string BuildURL(string Name, GitHubRequestTypeEnum gitHubRequestTypeEnum)
+        public string BuildURL(string Name, GitHubRequestTypeEnum gitHubRequestTypeEnum)
         {
             var request = "";
 

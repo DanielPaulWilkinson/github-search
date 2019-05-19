@@ -1,12 +1,9 @@
-﻿using github_search.ViewModels.Repo;
+﻿using github_search.ViewModels.Repository;
 using github_search.ViewModels.User;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace github_search.ViewModels
+
+namespace github_search.ViewModels.Pages
 {
     public class ProfileVM
     {

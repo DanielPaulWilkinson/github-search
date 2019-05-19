@@ -1,5 +1,6 @@
 ﻿using github_search.Services.Interfaces;
 using github_search.ViewModels;
+using github_search.ViewModels.Pages;
 using iTextSharp.text;
 using iTextSharp.text.pdf;
 using System;

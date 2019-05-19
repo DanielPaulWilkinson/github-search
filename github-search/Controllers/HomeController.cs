@@ -1,15 +1,9 @@
 ﻿using github_search.Services.Interfaces;
-using github_search.ViewModels;
-using github_search.ViewModels.Repo;
+using github_search.ViewModels.Pages;
 using github_search.ViewModels.User;
-using iTextSharp.text;
-using iTextSharp.text.pdf;
 using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Threading.Tasks;
-using System.Web;
 using System.Web.Mvc;
 
 namespace github_search.Controllers
