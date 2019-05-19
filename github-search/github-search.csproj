@@ -135,6 +135,13 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Error404.aspx.cs">
+      <DependentUpon>Error404.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Error404.aspx.designer.cs">
+      <DependentUpon>Error404.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -143,6 +150,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\Images\logo.png" />
+    <Content Include="Content\Images\default-avitar.png" />
+    <Content Include="Error404.aspx" />
     <Content Include="Scripts\Home\Home.js" />
     <Content Include="Styles\css\bootstrap-grid.css" />
     <Content Include="Styles\css\bootstrap.css" />
@@ -193,6 +202,8 @@
     <Content Include="Views\Home\Profile.cshtml" />
     <Content Include="Styles\ui\_profile.scss" />
     <Content Include="Styles\ui\_default.scss" />
+    <Content Include="Views\Home\_AccountItemDetailed.cshtml" />
+    <Content Include="Styles\ui\_error404.scss" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

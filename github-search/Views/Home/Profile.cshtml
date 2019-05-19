@@ -1,28 +1,44 @@
 ﻿@model github_search.ViewModels.ProfileVM
 @{
-    ViewBag.Title = Model.User.name + "Profile";
+    ViewBag.Title = "Profile";
 }
 <div id="profile">
     <div class="row">
-        <div class="col-md-6">
-            @* If we get this far we can assume we have the login name if no 'name' exists *@
-            <h1><a href="@Model.User.html_url" class="text-decoration-none">@(Model.User.name ?? @Model.User.login)</a></h1>
-
-            <p>@Model.User.bio</p>
-            <p><a href="@Model.User.email">@Model.User.email</a></p>
-            <p>@Model.User.company</p>
-            <p>@Model.User.followers</p>
-            <p>@Model.User.score</p>
-            <p>@Model.User.organizations_url</p>
-            <p>@Model.User.public_gists</p>
-            <p>@Model.User.type</p>
-            <p>@Model.User.hireable</p>
-            <p>@Model.User.location</p>
-
-
+        <div class="col-md-6 order-md-12 text-center">
+            <img src="@(Model.User.avatar_url ?? "~/Content/Images/default-avitar.png")" class="width-200 img-circle" />
         </div>
-        <div class="col-md-6 text-center">
-            <img src="@Model.User.avatar_url" class="w-50 img-circle" />
+        <div class="col-md-6 order-md-1">
+            <h1 class="text-center-xs"><a href="@Model.User.html_url" target="_blank" class="text-decoration-none">@(Model.User.name ?? @Model.User.login)</a></h1>
+            <p class="text-center-xs">@Model.User.bio</p>
+            <p class="text-center-xs">Based in - @(Model.User.location ?? "Unspecified")</p>
         </div>
     </div>
+    <hr />
+    @if (Model.Repositories != null)
+    {
+        <div class="row">
+            <div class="col-md-12">
+                <table class="table table-bordered table-responsive table-hover">
+                    <tr>
+                        <th>Name</th>
+                        <th>Description</th>
+                        <th>View Online</th>
+                        <th>Stargazer Count</th>
+                    </tr>
+                    @foreach (var repo in Model.Repositories
+                .OrderByDescending(x => x.stargazers_count)
+                .Take(5))
+                    {
+                        <tr>
+                            <td>@repo.full_name</td>
+                            <td>@repo.description</td>
+                            <td><a href="@repo.html_url" target="_blank">Click here</a></td>
+                            <td>@repo.stargazers_count</td>
+
+                        </tr>
+                    }
+                </table>
+            </div>
+        </div>
+    }
 </div>

@@ -18,10 +18,13 @@ namespace github_search.Services
     {
         public async Task<dynamic> GetUsersByName<T>(T t, string Name, GitHubRequestTypeEnum gitHubRequestTypeEnum = GitHubRequestTypeEnum.UserRequest) where T : Type
         {
-            var url = BuildURL(Name, gitHubRequestTypeEnum);
+           
 
-            var vm = await MakeRequest(t, url);
+                var url = BuildURL(Name, gitHubRequestTypeEnum);
 
+                var vm = await MakeRequest(t, url);
+
+            
             return vm;
         }
 

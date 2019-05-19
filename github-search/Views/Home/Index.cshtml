@@ -11,8 +11,12 @@
             {
                 <div class="row">
                     <div class="col-md-12">
-                        <h1>Search for a user</h1>
-                        <p>Please search on the login username, you can use a more generic name to see more results.</p>
+                        <h1>Search for a Github user...</h1>
+                        <p>Please search on the login username.</p>
+                        <ul>
+                            <li>Search 'DanielPau' to see a list of potential matches.</li>
+                            <li>Search 'DanielPaulWilkinson' to see my profile.</li>
+                        </ul>
                     </div>
                 </div>
                 <div class="row margin-top-10 margin-bottom-10">
@@ -22,7 +26,7 @@
                                 @Html.TextBoxFor(m => m.Search, new { placeholder = "Search...", @class = "form-control" })
                             </div>
                             <div class="order-sm-5 col-sm-1">
-                                <button class="btn btn-standard">GO</button>
+                                <button class="btn btn-primary">GO</button>
                             </div>
                         </div>
                     </div>
@@ -31,13 +35,26 @@
         </div>
     </div>
 </div>
-@if (Model.Results != null)
+
+
+@if (Model.Results != null &&
+     Model.User == null &&
+     Model.Results.total_count > 0)
 {
     <div class="margin-top-20 margin-bottom-20">
+        <p>It appears we cannot find user with the login name of <span class="font-weight-bold color-blue">'@Model.Search'</span> did you mean any of the following? </p>
         <div class="row">
             <div class="col-md-12">
                 @Html.Partial("_AccountGrid", Model)
             </div>
         </div>
     </div>
+}
+else if (Model.Search != null &&
+        Model.Results != null &&
+        Model.Results.total_count <= 0 &&
+        Model.User == null)
+{
+    <p>It appears no user with the login name of <span class="font-weight-bold color-blue">'@Model.Search'</span> exists please try again </p>
+
 }

@@ -11,7 +11,7 @@ using System.Web.Mvc;
 
 namespace github_search.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : BaseController
     {
         private readonly IGithubApiService _githubApiService;
 
@@ -34,7 +34,14 @@ namespace github_search.Controllers
             {
                 Search = Search,
                 Results = await _githubApiService.GetUsersByName(typeof(UserSearchResultVM), Search),
+                User = await _githubApiService.GetUsersByName(typeof(GithubDetailedUser), Search, Core.GitHubRequestTypeEnum.UserDetailedRequest),
             };
+
+            //if the search result contains the same user redirect to results page...
+            if (vm.User != null )
+            {
+                 return RedirectToAction("LearnMore", new { name = vm.User.login });
+            }
 
             return View("index",vm);
         }
@@ -46,6 +53,12 @@ namespace github_search.Controllers
                 User = await _githubApiService.GetUsersByName(typeof(GithubDetailedUser), name, Core.GitHubRequestTypeEnum.UserDetailedRequest),
                 Repositories  = await _githubApiService.GetUsersByName(typeof(List<GithubRepo>), name, Core.GitHubRequestTypeEnum.UserRepoRequest),
             };
+
+            //Must be that we have ran out of calls for the moment
+            if(vm.User == null && vm.Repositories == null)
+            {
+                Throw404();
+            }
 
             return View("profile", vm);
         }

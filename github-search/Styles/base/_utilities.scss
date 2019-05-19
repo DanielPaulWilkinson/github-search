@@ -224,6 +224,11 @@
     @include link($name, $value);
 }
 
+@for $i from 0 through 10  {
+    @include generateClass(width, width, $i*100);
+}
+
+
 //--- Font Sizes ---\\
 
 //default

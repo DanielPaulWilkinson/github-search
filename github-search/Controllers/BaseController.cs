@@ -9,9 +9,9 @@ namespace github_search.Controllers
     public class BaseController : Controller
     {
         // GET: Base
-        public ActionResult Error404()
+        protected void Throw404()
         {
-            return View();
+            throw new HttpException(404, "not found");
         }
     }
 }
