@@ -47,7 +47,6 @@
   <ItemGroup>
     <Compile Include="Consts\GithubCalls.cs" />
     <Compile Include="Enums\GitHubRequestTypeEnum.cs" />
-    <Compile Include="Helpers\JSONHelper.cs" />
     <Compile Include="Interfaces\IDependencyRegistrar.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

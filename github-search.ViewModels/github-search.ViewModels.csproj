@@ -47,16 +47,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BaseVM.cs" />
-    <Compile Include="GithubDetailedUser.cs" />
-    <Compile Include="license.cs" />
-    <Compile Include="ProfileVM.cs" />
-    <Compile Include="Repo\GithubRepo.cs" />
-    <Compile Include="Repo\OwnerVM.cs" />
+    <Compile Include="Base\BaseVM.cs" />
+    <Compile Include="User\GithubDetailedUser.cs" />
+    <Compile Include="Repository\LicenseVM.cs" />
+    <Compile Include="Pages\ProfileVM.cs" />
+    <Compile Include="Repository\GithubRepo.cs" />
+    <Compile Include="Repository\OwnerVM.cs" />
     <Compile Include="User\UserSearchResultVM.cs" />
-    <Compile Include="HomeVM.cs" />
+    <Compile Include="Pages\HomeVM.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="User\GithubUser.cs" />
+    <Compile Include="User\GithubBaseUser.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
