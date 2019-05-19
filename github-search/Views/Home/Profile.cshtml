@@ -4,17 +4,15 @@
 }
 <div id="profile">
     <div class="row">
-        <div class="col-md-6 order-md-12 text-center">
+        <div class="col-md-6 col-12 order-md-12 text-center">
             <img src="@(Model.User.avatar_url ?? "~/Content/Images/default-avitar.png")" class="width-200 img-circle" />
         </div>
-        <div class="col-md-6 order-md-1">
-            <h1 class="text-center-xs"><a href="@Model.User.html_url" target="_blank" class="text-decoration-none">@(Model.User.name ?? @Model.User.login)</a></h1>
-            <p class="text-center-xs">@Model.User.bio</p>
-            <p class="text-center-xs">Based in - @(Model.User.location ?? "Unspecified")</p>
-            <div>
+        <div class="col-md-6 col-12 order-md-1 text-center-xs">
+            <h1><a href="@Model.User.html_url" target="_blank" class="text-decoration-none">@(Model.User.name ?? @Model.User.login)</a></h1>
+            <p>@Model.User.bio</p>
+            <p>Based in - @(Model.User.location ?? "Unspecified")</p>
                 <a class="btn btn-primary" href="@Url.Action("download","home", new { login = @Model.User.login }) ">Download Profile to PDF</a>
                 <a class="btn btn-primary" target="_blank" href="@Model.User.html_url">View Profile Online</a>
-            </div>
         </div>
     </div>
     <hr />

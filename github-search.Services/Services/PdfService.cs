@@ -14,7 +14,7 @@ namespace github_search.Services.Services
 {
     public class PdfService : IPdfService
     {
-
+        #region Core Methods
         public MemoryStream GetProfile(ProfileVM vm)
         {
             //set bounds
@@ -32,17 +32,17 @@ namespace github_search.Services.Services
             doc.Open();
 
             //Add image
-            AddProfileImage(doc,vm.User.avatar_url,Element.ALIGN_CENTER);
+            AddProfileImage(doc, vm.User.avatar_url, Element.ALIGN_CENTER);
 
             //Add name of candidate 
             AddText(doc, $"{vm.User.name ?? vm.User.login}", FontFactory.GetFont("Arial", 30, BaseColor.BLACK), Element.ALIGN_CENTER);
 
             //Add bio.
-            AddText(doc, $"{vm.User.bio ?? "Unspecified Bio"}", FontFactory.GetFont("Arial", 11,Font.ITALIC, BaseColor.BLACK), Element.ALIGN_CENTER);
+            AddText(doc, $"{vm.User.bio ?? "Unspecified Bio"}", FontFactory.GetFont("Arial", 11, Font.ITALIC, BaseColor.BLACK), Element.ALIGN_CENTER);
 
             //Add detail sub title.
-            AddText(doc, "Details", FontFactory.GetFont("Arial", 30, BaseColor.BLACK),Element.ALIGN_LEFT);
-            
+            AddText(doc, "Details", FontFactory.GetFont("Arial", 30, BaseColor.BLACK), Element.ALIGN_LEFT);
+
             //Add detail info.
             AddDetailsList(doc, vm);
 
@@ -58,13 +58,15 @@ namespace github_search.Services.Services
 
             return memoryStream;
         }
+        #endregion
 
+        #region PDF Writer Helper Methods
         private void AddRepositoryTable(Document doc, ProfileVM vm)
         {
             PdfPTable hypTable = new PdfPTable(4);
             hypTable.TotalWidth = 500f;
             hypTable.LockedWidth = true;
-            float[] widths = new float[] { 4f, 8f, 2f, 2f };
+            float[] widths = new float[] { 4f, 8f, 3f, 3f };
             hypTable.SetWidths(widths);
             hypTable.HorizontalAlignment = 0;
             hypTable.SpacingBefore = 20;
@@ -145,5 +147,6 @@ namespace github_search.Services.Services
             doc.AddSubject("Profile Report");
             doc.AddTitle("Profile Report");
         }
+        #endregion
     }
 }

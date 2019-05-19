@@ -25,7 +25,7 @@ namespace github_search.Controllers
             _pdfService = pdfService;
         }
 
-
+        #region Home
         public ActionResult Index()
         {
             var vm = new HomeVM();
@@ -33,36 +33,34 @@ namespace github_search.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult> Search(string Search)
+        public async Task<ActionResult> Search(string search)
         {
             var vm = new HomeVM
             {
-                Search = Search,
-                Results = await _githubApiService.GetUsersByName(typeof(UserSearchResultVM), Search),
-                User = await _githubApiService.GetUsersByName(typeof(GithubDetailedUser), Search, Core.GitHubRequestTypeEnum.UserDetailedRequest),
+                Search = search,
+                Results = await _githubApiService.GetUsersByName(typeof(UserSearchResultVM), search),
+                User = await _githubApiService.GetUsersByName(typeof(GithubDetailedUser), search, Core.GitHubRequestTypeEnum.UserDetailedRequest),
             };
 
-            //if the search result contains the same user redirect to results page...
             if (vm.User != null)
             {
-                return RedirectToAction("LearnMore", new { name = vm.User.login });
+                return RedirectToAction("LearnMore", new { login = vm.User.login });
             }
 
             return View("index", vm);
         }
-
-        public async Task<ActionResult> LearnMore(string name)
+        public async Task<ActionResult> LearnMore(string login)
         {
-            //Since it was requested in the breif that a seperate repo url be called as a result of the inital, instead of a generic call a seperate method was creaated that takes a repo url.
+            //Since it was a requirement that the 'repo_url' was used from the first call, I have commented this out and have used the below method instead.
             //var vm = new ProfileVM
             //{
             //    User = await _githubApiService.GetUsersByName(typeof(GithubDetailedUser), name, Core.GitHubRequestTypeEnum.UserDetailedRequest),
             //    Repositories  = await _githubApiService.GetUsersByName(typeof(List<GithubRepo>), name, Core.GitHubRequestTypeEnum.UserRepoRequest),
             //};
 
-            var vm = await _githubApiService.GetProfile(name);
+            var vm = await _githubApiService.GetProfile(login);
 
-            if(vm.User != null)
+            if (vm.User != null)
             {
                 return View("profile", vm);
             }
@@ -84,6 +82,9 @@ namespace github_search.Controllers
             DownloadAsPDF(memoryStream, $"{DateTime.Now.ToString("yyyyMMddHHmmss")}-{vm.User.login}");
             return RedirectToAction("LearnMore", new { name = login });
         }
+        #endregion
+
+        #region Home Private Methods
         private void DownloadAsPDF(MemoryStream ms, string filename)
         {
             Response.Clear();
@@ -97,5 +98,7 @@ namespace github_search.Controllers
             Response.End();
             ms.Close();
         }
+        #endregion
+
     }
 }

@@ -4,38 +4,32 @@
 }
 
 <div class="row">
-    <div class="col-md-6">
-
-        <div class="">
-            @using (Html.BeginForm("Search", "Home"))
-            {
-                <div class="row">
-                    <div class="col-md-12">
-                        <h1>Search for a Github user...</h1>
-                        <p>Please search on the login username.</p>
-                        <ul>
-                            <li>Search 'DanielPau' to see a list of potential matches.</li>
-                            <li>Search 'DanielPaulWilkinson' to see my profile.</li>
-                        </ul>
-                    </div>
+    <div class="col-md-12">
+        @using (Html.BeginForm("Search", "Home"))
+        {
+            <div class="row justify-content-center">
+                <div class="col-lg-6 col-md-8 col-12">
+                    <h1>Search for a Github user...</h1>
+                    <p>Please search on the login username.</p>
+                    <ul>
+                        <li>Search 'DanielPau' to see a list of potential matches.</li>
+                        <li>Search 'DanielPaulWilkinson' to see my profile.</li>
+                    </ul>
                 </div>
-                <div class="row margin-top-10 margin-bottom-10">
-                    <div class="col-sm-12">
-                        <div class="row">
-                            <div class="col-sm-10">
-                                @Html.TextBoxFor(m => m.Search, new { placeholder = "Search...", @class = "form-control" })
-                            </div>
-                            <div class="order-sm-5 col-sm-1">
-                                <button class="btn btn-primary">GO</button>
-                            </div>
+                <div class="col-md-12 col-12 ">
+                    <div class="row justify-content-center">
+                        <div class="col-8">
+                            @Html.TextBoxFor(m => m.Search, new { placeholder = "Search...", @class = "form-control" })
+                        </div>
+                        <div class="col-2">
+                            <button class="btn btn-primary">GO</button>
                         </div>
                     </div>
                 </div>
-            }
-        </div>
+            </div>
+        }
     </div>
 </div>
-
 
 @if (Model.Results != null &&
      Model.User == null &&
@@ -50,11 +44,7 @@
         </div>
     </div>
 }
-else if (Model.Search != null &&
-        Model.Results != null &&
-        Model.Results.total_count <= 0 &&
-        Model.User == null)
+else if (Model.Search != null && Model.Results != null && Model.Results.total_count <= 0 && Model.User == null)
 {
     <p>It appears no user with the login name of <span class="font-weight-bold color-blue">'@Model.Search'</span> exists please try again </p>
-
 }

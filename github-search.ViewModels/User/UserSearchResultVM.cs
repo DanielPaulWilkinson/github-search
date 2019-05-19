@@ -11,6 +11,6 @@ namespace github_search.ViewModels.User
     {
         public int total_count { get; set; }
         public bool incomplete_results { get; set; }
-        public List<GithubUser> items { get; set; }
+        public List<GithubBaseUser> items { get; set; }
     }
 }

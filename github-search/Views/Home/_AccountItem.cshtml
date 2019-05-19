@@ -1,6 +1,6 @@
 ﻿@model github_search.ViewModels.User.GithubUser
 <div class="col-md-12 text-center">
-    <a href="@Url.Action("learnmore","home", new { name = Model.login })" class="">
+    <a href="@Url.Action("learnmore","home", new { login = Model.login })" class="">
         <div class="bg-blue account-item">
             <div class="margin-top-10 margin-bottom-10 padding-10 shadow">
                 <img src="@Model.avatar_url" class="img-circle w-50" />

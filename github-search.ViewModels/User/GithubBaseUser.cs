@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace github_search.ViewModels.User
 {
-    public class GithubUser : BaseVM
+    public class GithubBaseUser : BaseVM
     {
         public string login { get; set; }
         public string node_id { get; set; }
